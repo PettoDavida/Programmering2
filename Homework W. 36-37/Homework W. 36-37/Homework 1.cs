@@ -11,10 +11,15 @@ namespace Homework_W._36_37
     {
         public static void Main(string[] args)
         {
-            nmr1();
-            nmr2();
-            nmr3();
-            
+            //nmr1();
+            //nmr2();
+            object[] five = nmr3(1, 2, 3, 4, "hello", 3.14f, "fredrik");
+            for (int i = 0; i < five.Length; i++)
+            {
+                Console.Write(five[i] + " ");
+            }
+            Console.WriteLine();
+            Console.ReadLine();
         }
 
         
@@ -71,9 +76,11 @@ namespace Homework_W._36_37
             nmr2();
         }
 
-        public static void nmr3()
+        public static object[] nmr3(params object[] list)
         {
             Console.WriteLine("Skapa en generisk metod som tar in ett okänt antal objekt och returnerar en array av dem");
+            return list;
+
         }
     }
 }
