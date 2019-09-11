@@ -13,6 +13,7 @@ namespace Homework_W._36_37
         {
             nmr1();
             nmr2();
+            nmr3();
             
         }
 
@@ -22,7 +23,6 @@ namespace Homework_W._36_37
 
             Console.WriteLine("1. Skapa en metod som tar in ett okänt antal heltal och returnerar deras summa.");
             Console.WriteLine("Skriv heltal");
-            Thread.Sleep(5000);
 
             Random intag = new Random();
 
@@ -49,13 +49,31 @@ namespace Homework_W._36_37
                 
             }
             Console.WriteLine("Det totala är " + summa);
-            Console.ReadLine();
 
         }
 
         public static void nmr2()
         {
 
+            Console.WriteLine("2. Skapa en rekursiv metod som tar in en sträng och returnerar den baklänges.");
+            Console.WriteLine("Skriv in ett ord och klicka enter om du skriver stop så stängs metoden av");
+
+            string ord = Console.ReadLine();
+            if (ord.ToLower() == "stop" )
+            {
+                return;
+            }
+            for (int i = ord.Length - 1; i >= 0; i--)
+            {
+                Console.Write(ord[i]);
+            }
+            Console.WriteLine();
+            nmr2();
+        }
+
+        public static void nmr3()
+        {
+            Console.WriteLine("Skapa en generisk metod som tar in ett okänt antal objekt och returnerar en array av dem");
         }
     }
 }
