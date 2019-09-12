@@ -15,7 +15,10 @@ namespace Homework_W._36_37
             int summa = nmr1(nummer);
             
             Console.WriteLine(summa);
-            nmr2();
+            
+            string str = "Hello World";
+            string reversedStr = nmr2(str);
+            Console.WriteLine("Reverse: {0} -> {1}", str, reversedStr);
             object[] five = nmr3(1, 2, 3, 4, "hello", 3.14f, "fredrik");
             for (int i = 0; i < five.Length; i++)
             {
@@ -37,23 +40,13 @@ namespace Homework_W._36_37
             return summa;
         }
 
-        public static void nmr2()
+        public static string nmr2(string str)
         {
 
-            Console.WriteLine("2. Skapa en rekursiv metod som tar in en sträng och returnerar den baklänges.");
-            Console.WriteLine("Skriv in ett ord och klicka enter om du skriver stop så stängs metoden av");
+            if (str.Length <= 0)
+                return str;
 
-            string ord = Console.ReadLine();
-            if (ord.ToLower() == "stop" )
-            {
-                return;
-            }
-            for (int i = ord.Length - 1; i >= 0; i--)
-            {
-                Console.Write(ord[i]);
-            }
-            Console.WriteLine();
-            nmr2();
+            return nmr2(str.Substring(1)) + str[0];
         }
 
         public static object[] nmr3(params object[] list)
@@ -63,7 +56,7 @@ namespace Homework_W._36_37
 
         }
 
-        public static object nmr4()
+        public static void nmr4()
         {
             Console.WriteLine("4. Skapa en klass Box som tar in ett okänt antal objekt och lagrar dem.");
             Console.WriteLine();
