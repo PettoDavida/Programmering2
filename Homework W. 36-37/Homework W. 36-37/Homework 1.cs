@@ -11,7 +11,10 @@ namespace Homework_W._36_37
     {
         public static void Main(string[] args)
         {
-            nmr1();
+            int[] nummer = new int[10] {1, 3, 4, 5, 6,1,123,82,91,1000 };
+            int summa = nmr1(nummer);
+            
+            Console.WriteLine(summa);
             nmr2();
             object[] five = nmr3(1, 2, 3, 4, "hello", 3.14f, "fredrik");
             for (int i = 0; i < five.Length; i++)
@@ -23,38 +26,15 @@ namespace Homework_W._36_37
         }
 
         
-        public static void nmr1()
+        public static int nmr1(int[] nummer )
         {
-
-            Console.WriteLine("1. Skapa en metod som tar in ett okänt antal heltal och returnerar deras summa.");
-            Console.WriteLine("Skriv heltal");
-
-            Random intag = new Random();
-
-            int random = intag.Next(1, 11);
-
-            int intagna = 0;
-
-            int tal;
-
             int summa = 0;
-
-            while (intagna < random)
+            Console.WriteLine("1. Skapa en metod som tar in ett okänt antal heltal och returnerar deras summa.");
+            for (int i = 0; i < nummer.Length; i++)
             {
-                Console.WriteLine("skriv ett heltal");
-                try
-                {
-                    tal = int.Parse(Console.ReadLine());
-                } catch(Exception e)
-                {
-                    continue;
-                }
-                intagna++;
-                summa += tal;
-                
+                summa += nummer[i];
             }
-            Console.WriteLine("Det totala är " + summa);
-
+            return summa;
         }
 
         public static void nmr2()
@@ -81,6 +61,18 @@ namespace Homework_W._36_37
             Console.WriteLine("Skapa en generisk metod som tar in ett okänt antal objekt och returnerar en array av dem");
             return list;
 
+        }
+
+        public static object nmr4()
+        {
+            Console.WriteLine("4. Skapa en klass Box som tar in ett okänt antal objekt och lagrar dem.");
+            Console.WriteLine();
+            
+        }
+        public static void nmr5()
+        {
+            Box A = new Box("abc", "def");
+            Box B = new Box(839, 213);
         }
     }
 }

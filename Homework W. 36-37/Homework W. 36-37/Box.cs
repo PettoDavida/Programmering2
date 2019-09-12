@@ -9,14 +9,25 @@ namespace Homework_W._36_37
 {
     class Box
     {
-        public static void Main(String[] args)
-        {
+        public List<object> saker;
 
-            Console.WriteLine("4. Skapa en klass Box som tar in ett okänt antal objekt och lagrar dem.");
-            Console.WriteLine();
-        List<object> objekt = new List<object> { };
-        Random rnd = new Random();
-        int random = rnd.Next(1, 11);
+        public Box (params object[] list)
+        {
+            saker = new List<object>();
+
+            foreach  (object item in list)
+            {
+                saker.Add(item);
+            }
+        }
+
+        
+
+        public void Metod()
+        {
+            List<object> objekt = new List<object> { };
+            Random rnd = new Random();
+            int random = rnd.Next(1, 11);
             object obj;
 
 
@@ -25,7 +36,8 @@ namespace Homework_W._36_37
                 obj = Console.ReadLine();
                 objekt.Add(obj);
             }
-
         }
+
+
     }
 }
