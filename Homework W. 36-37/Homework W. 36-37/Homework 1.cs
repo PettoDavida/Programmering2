@@ -11,8 +11,8 @@ namespace Homework_W._36_37
     {
         public static void Main(string[] args)
         {
-            //nmr1();
-            //nmr2();
+            nmr1();
+            nmr2();
             object[] five = nmr3(1, 2, 3, 4, "hello", 3.14f, "fredrik");
             for (int i = 0; i < five.Length; i++)
             {
