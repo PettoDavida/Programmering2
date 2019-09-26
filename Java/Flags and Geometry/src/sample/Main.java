@@ -32,12 +32,20 @@ public class Main extends Application {
         VBox buttons = new VBox();
         ToggleGroup radio = new ToggleGroup();
         radio.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println("wooh");
+            if (radio.selectedToggleProperty() != null ){
+                int flagindex = (int)radio.getSelectedToggle().getUserData();
+
+                if (flagindex == 0){
+                    root.getChildren().add(Controller.Sweden());
+                }
+            }
         });
         RadioButton sweden = new RadioButton("Sweden");
         RadioButton netherlands = new RadioButton("Netherlands");
         sweden.setToggleGroup(radio);
+        sweden.setUserData(0);
         netherlands.setToggleGroup(radio);
+        netherlands.setUserData(1);
         stack.getChildren().add(buttons);
         buttons.getChildren().add(sweden);
         buttons.getChildren().add(netherlands);
