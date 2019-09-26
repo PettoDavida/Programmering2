@@ -1,113 +1,122 @@
 package sample;
 
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.transform.Rotate;
 
 public class Controller {
-    public static FlagClass Sweden() {
-        FlagClass flagga = new FlagClass();
+    public static Node Sweden() {
+
         Rectangle bg = new Rectangle();
         bg.setWidth(300);
         bg.setHeight(200);
-        bg.setFill(Color.BLUE);
+        bg.setFill(Color.MIDNIGHTBLUE);
 
-        Rectangle hStripe = new Rectangle();
-        hStripe.setWidth(300);
-        hStripe.setHeight(40);
-        hStripe.setTranslateY(80);
-        hStripe.setFill(Color.YELLOW);
+        Rectangle yStripe = new Rectangle();
+        yStripe.setWidth(300);
+        yStripe.setHeight(40);
+        yStripe.setTranslateY(0);
+        yStripe.setFill(new Color(0xFF / 255.0f, 0xCD / 255.0f, 0.0f, 1.0f));
 
-        Rectangle vStripe = new Rectangle();
-        vStripe.setWidth(40);
-        vStripe.setHeight(200);
-        vStripe.setTranslateX(80);
-        vStripe.setFill(Color.YELLOW);
+        Rectangle xStripe = new Rectangle();
+        xStripe.setWidth(40);
+        xStripe.setHeight(200);
+        xStripe.setTranslateX(-40);
+        xStripe.setFill(new Color(0xFF / 255.0f, 0xCD / 255.0f, 0.0f, 1.0f));
 
-        flagga.getChildren().addAll(bg, vStripe, hStripe);
+        StackPane root = new StackPane();
+        root.getChildren().add(bg);
+        root.getChildren().add(xStripe);
+        root.getChildren().add(yStripe);
 
-        return flagga;
+        return root;
 
     }
 
-    public static FlagClass Netherlands() {
-        FlagClass flagga = new FlagClass();
+    public static Node Netherlands() {
 
         Rectangle vStripe = new Rectangle();
 
         vStripe.setWidth(600);
         vStripe.setHeight(100);
         vStripe.setTranslateX(0);
-        vStripe.setFill(Color.DARKRED);
+        vStripe.setFill(new Color(174 / 255.0f, 28 / 255.0f, 40 / 255.0f, 1.0f));
 
-        Rectangle vStripe2 = new Rectangle();
+        Rectangle xStripe = new Rectangle();
 
-        vStripe2.setWidth(600);
-        vStripe2.setHeight(100);
-        vStripe2.setTranslateY(100);
-        vStripe2.setFill(Color.WHITE);
+        xStripe.setWidth(600);
+        xStripe.setHeight(100);
+        xStripe.setTranslateY(100);
+        xStripe.setFill(Color.WHITE);
 
-        Rectangle vStripe3 = new Rectangle();
+        Rectangle yStripe = new Rectangle();
 
-        vStripe3.setWidth(600);
-        vStripe3.setHeight(100);
-        vStripe3.setTranslateY(200);
-        vStripe3.setFill(Color.BLUE);
+        yStripe.setWidth(600);
+        yStripe.setHeight(100);
+        yStripe.setTranslateY(200);
+        yStripe.setFill(new Color(33 / 255.0f, 70 / 255.0f, 139 / 255.0f, 1.0f));
 
-        Group root = new Group(vStripe, vStripe2, vStripe3);
+        StackPane root = new StackPane();
+        root.getChildren().add(vStripe);
+        root.getChildren().add(xStripe);
+        root.getChildren().add(yStripe);
 
-        Scene scene = new Scene(root, 600, 300, Color.LAVENDER);
-
-        flagga.getChildren().addAll(vStripe, vStripe2, vStripe3);
-
-        return flagga;
+        return root;
     }
 
-    public static FlagClass Switzerland() {
-        FlagClass flagga = new FlagClass();
+    public static Node Switzerland() {
 
-        Rectangle vStripe = new Rectangle();
+        Rectangle xStripe = new Rectangle();
+        Rectangle yStripe = new Rectangle();
 
-        vStripe.setWidth(600);
-        vStripe.setHeight(300);
-        vStripe.setTranslateX(0);
-        vStripe.setFill(Color.RED);
 
-        Group root = new Group(vStripe);
+        xStripe.setWidth(75);
+        xStripe.setHeight(200);
+        xStripe.setFill(Color.WHITE);
 
-        Scene scene = new Scene(root, 600, 300, Color.LAVENDER);
+        yStripe.setWidth(200);
+        yStripe.setHeight(75);
+        yStripe.setFill(Color.WHITE);
 
-        flagga.getChildren().addAll(vStripe);
+        Rectangle bg = new Rectangle();
+        bg.setFill(new Color(213 / 255.0f, 43 / 255.0f, 30 / 255.0f, 1.0f));
+        bg.setWidth(300);
+        bg.setHeight(300);
 
-        return flagga;
+        StackPane root = new StackPane();
+        root.getChildren().add(bg);
+        root.getChildren().add(xStripe);
+        root.getChildren().add(yStripe);
+
+        return root;
 
     }
 
-    public static FlagClass Ukraine() {
-        FlagClass flagga = new FlagClass();
+    public static Node Ukraine() {
 
         Rectangle vStripe = new Rectangle();
 
         vStripe.setWidth(600);
         vStripe.setHeight(150);
         vStripe.setTranslateX(0);
-        vStripe.setFill(Color.BLUE);
+        vStripe.setFill(new Color(0 / 255.0f, 91 / 255.0f, 187 / 255.0f, 1.0f));
 
-        Rectangle vStripe2 = new Rectangle();
+        Rectangle yStripe = new Rectangle();
 
-        vStripe2.setWidth(600);
-        vStripe2.setHeight(150);
-        vStripe2.setTranslateY(150);
-        vStripe2.setFill(Color.YELLOW);
+        yStripe.setWidth(600);
+        yStripe.setHeight(150);
+        yStripe.setTranslateY(150);
+        yStripe.setFill(new Color(255 / 255.0f, 213 / 255.0f, 0 / 255.0f, 1.0f));
 
-        // Group root = new Group(vStripe, vStripe2);
 
-        flagga.getChildren().addAll(vStripe, vStripe2);
+        StackPane root = new StackPane();
+       root.getChildren().add(vStripe);
+        root.getChildren().add(yStripe);
 
-        return flagga;
+        return root;
 
     }
 
