@@ -9,10 +9,10 @@ using System.Windows.Forms;
 
 namespace Calculator
 {
-    public partial class Form1 : Form
+    public partial class kalkylator : Form
     {
         Timer timer;
-        public Form1()
+        public kalkylator()
         {
             InitializeComponent();
 
@@ -65,6 +65,14 @@ namespace Calculator
             }
         }
 
-        
+        private void Del(object sender, EventArgs e)
+        {
+            if (this.outputText.Text.Length <= 0)
+                return;
+
+            string text = this.outputText.Text;
+            text = text.Substring(0, text.Length - 1);
+            this.outputText.Text = text;
+        }
     }
 }
