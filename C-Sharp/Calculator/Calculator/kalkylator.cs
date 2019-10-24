@@ -11,6 +11,8 @@ namespace Calculator
 {
     public partial class kalkylator : Form
     {
+        private List<char> numeriska = new List<char> { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', '.', '%', '/', '*', '(', ')'}; 
+
         Timer timer;
         public kalkylator()
         {
@@ -30,7 +32,7 @@ namespace Calculator
             this.outputText.Text = "";
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void Operatorer(object sender, EventArgs e)
         {
             Button button = (Button)sender;
 
@@ -38,12 +40,12 @@ namespace Calculator
 
         }
 
-        private void Button16_Click(object sender, EventArgs e)
+        private void Clear(object sender, EventArgs e)
         {
             this.outputText.Text = "";
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void Equals(object sender, EventArgs e)
         {
             string ekvation = this.outputText.Text;
             try {
@@ -60,9 +62,10 @@ namespace Calculator
         {
             if(e.KeyCode == Keys.Enter)
             {
-                Button2_Click(null, null);
+                Equals(null, null);
                 e.Handled = true;
             }
+            
         }
 
         private void Del(object sender, EventArgs e)
@@ -73,6 +76,31 @@ namespace Calculator
             string text = this.outputText.Text;
             text = text.Substring(0, text.Length - 1);
             this.outputText.Text = text;
+        }
+
+        private void OutputText_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Console.WriteLine();
+            bool bokstav = false;
+            for (int i = 0; i < numeriska.Count; i++)
+            {
+                if(e.KeyChar == numeriska[i] || e.KeyChar == 8)
+                {
+                    bokstav = false;
+                    break;
+                }
+                else
+                {
+                    bokstav = true;
+                }
+                
+            }
+
+            if (bokstav)
+            {
+                e.Handled = true;
+            }
+            
         }
     }
 }
