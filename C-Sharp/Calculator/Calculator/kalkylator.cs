@@ -11,7 +11,7 @@ namespace Calculator
 {
     public partial class kalkylator : Form
     {
-        private List<char> numeriska = new List<char> { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', '.', '%', '/', '*', '(', ')'}; 
+        private List<char> numeriska = new List<char> { ',', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', '.', '%', '/', '*', '(', ')'}; 
 
         Timer timer;
         public kalkylator()
@@ -101,6 +101,14 @@ namespace Calculator
                 e.Handled = true;
             }
             
+        }
+
+        private void ROT(object sender, EventArgs e)
+        {
+            List<char> root = new List<char>{};
+            Button button = (Button)sender;
+
+            root.Add(button.Name[0]);
         }
     }
 }
