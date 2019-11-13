@@ -11,7 +11,7 @@ namespace Calculator
 {
     public partial class kalkylator : Form
     {
-        private List<char> numeriska = new List<char> { ',', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', '.', '%', '/', '*', '(', ')'}; 
+        private List<char> numeriska = new List<char> { ',', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', '.', '%', '/', '*', '(', ')', '^'}; 
 
         Timer timer;
         public kalkylator()
@@ -30,6 +30,7 @@ namespace Calculator
         {
             timer.Stop();
             this.outputText.Text = "";
+            this.Ekvation.Text = "";
         }
 
         private void Operatorer(object sender, EventArgs e)
@@ -37,12 +38,13 @@ namespace Calculator
             Button button = (Button)sender;
 
             this.outputText.Text += button.Text;
-
+            this.Ekvation.Text += button.Text;
         }
 
         private void Clear(object sender, EventArgs e)
         {
             this.outputText.Text = "";
+            this.Ekvation.Text = "";
         }
 
         private void Equals(object sender, EventArgs e)
@@ -50,7 +52,6 @@ namespace Calculator
             string ekvation = this.outputText.Text;
             try {
                 string equals = new DataTable().Compute(ekvation, null).ToString();
-                Console.WriteLine(equals);
                 this.outputText.Text = equals;
             } catch {
                 this.outputText.Text = "ERROR";
@@ -60,6 +61,7 @@ namespace Calculator
 
         private void OutputText_KeyUp(object sender, KeyEventArgs e)
         {
+            
             if(e.KeyCode == Keys.Enter)
             {
                 Equals(null, null);
@@ -80,13 +82,14 @@ namespace Calculator
 
         private void OutputText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Console.WriteLine();
+            
             bool bokstav = false;
             for (int i = 0; i < numeriska.Count; i++)
             {
                 if(e.KeyChar == numeriska[i] || e.KeyChar == 8)
                 {
                     bokstav = false;
+                    this.Ekvation.Text += e.KeyChar;
                     break;
                 }
                 else
@@ -101,14 +104,6 @@ namespace Calculator
                 e.Handled = true;
             }
             
-        }
-
-        private void ROT(object sender, EventArgs e)
-        {
-            List<char> root = new List<char>{};
-            Button button = (Button)sender;
-
-            root.Add(button.Name[0]);
         }
     }
 }
