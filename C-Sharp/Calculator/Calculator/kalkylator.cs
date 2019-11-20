@@ -12,7 +12,7 @@ namespace Calculator
     public partial class kalkylator : Form
     {
         private List<char> numeriska = new List<char> { ',', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', '.', '%', '/', '*', '(', ')', '^'}; 
-
+        // Alla karaktärer man ska kunna skriva in i miniräknaren
         Timer timer;
         public kalkylator()
         {
@@ -22,12 +22,13 @@ namespace Calculator
 
             timer.Tick += Timer_Tick;
             timer.Interval = 500;
-
+            // Timern gjordes så att man skulle hinna se ERROR om an fick det, innan gick den bara förbi så man han inte se ERROR
            
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
+            // Clearar fälten när timern tar slut när det blivit en error
             timer.Stop();
             this.outputText.Text = "";
             this.Ekvation.Text = "";
@@ -59,10 +60,10 @@ namespace Calculator
             }
         }
 
-        private void OutputText_KeyUp(object sender, KeyEventArgs e)
+        private void OutputText_KeyUp(object sender, KeyEventArgs e) 
         {
-            
-            if(e.KeyCode == Keys.Enter)
+            // gör bara så att man ska kunna klicka på enter istället för = på räknaren
+            if (e.KeyCode == Keys.Enter)
             {
                 Equals(null, null);
                 e.Handled = true;
@@ -72,6 +73,7 @@ namespace Calculator
 
         private void Del(object sender, EventArgs e)
         {
+            // Deletar bara en karaktär istället för att ta bort hela fältet
             if (this.outputText.Text.Length <= 0)
                 return;
 
@@ -82,7 +84,7 @@ namespace Calculator
 
         private void OutputText_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            // Jämnför tangenten du tryckte med listan av accepterade karaktärer för att se om den är samma annars så läggs den inte in
             bool bokstav = false;
             for (int i = 0; i < numeriska.Count; i++)
             {
