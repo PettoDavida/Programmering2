@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Calculator
@@ -80,27 +76,38 @@ namespace Calculator
             string text = this.outputText.Text;
             text = text.Substring(0, text.Length - 1);
             this.outputText.Text = text;
+            this.Ekvation.Text = text;
         }
 
         private void OutputText_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // Gör så att när man klickar backspace knappen så tar den bort på båda outputsen istället för bara en av de
+            if (e.KeyChar == 8)
+            {
+                if(this.Ekvation.Text.Length > 1)
+                    this.Ekvation.Text = this.Ekvation.Text.Substring(0, this.Ekvation.Text.Length - 1);
+
+                if(this.Ekvation.Text.Length == 1)
+                    this.Ekvation.Text = this.Ekvation.Text.Substring(0, this.Ekvation.Text.Length - this.Ekvation.Text.Length);
+                return;
+            }
             // Jämnför tangenten du tryckte med listan av accepterade karaktärer för att se om den är samma annars så läggs den inte in
             bool bokstav = false;
             for (int i = 0; i < numeriska.Count; i++)
             {
-                if(e.KeyChar == numeriska[i] || e.KeyChar == 8)
+                if(e.KeyChar == numeriska[i])
                 {
                     bokstav = false;
                     this.Ekvation.Text += e.KeyChar;
                     break;
-                }
+                } 
                 else
                 {
                     bokstav = true;
                 }
                 
             }
-
+            
             if (bokstav)
             {
                 e.Handled = true;
