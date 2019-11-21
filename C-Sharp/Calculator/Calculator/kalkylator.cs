@@ -107,7 +107,7 @@ namespace Calculator
                 }
                 
             }
-            
+            //jag fick något fel när jag inte hade den så lämnar den för säkerhets skull
             if (bokstav)
             {
                 e.Handled = true;
