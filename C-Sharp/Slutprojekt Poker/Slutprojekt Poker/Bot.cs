@@ -8,11 +8,18 @@ namespace Slutprojekt_Poker
 {
     class Bot
     {
-        static void botmove()
+        private Board board;
+        public Bot(Board board)
+        {
+            this.board = board;
+        }
+        public void botmove()
         {
             Random random = new Random();
 
-            int move = random.Next(0, 8);
+            int x = random.Next(0, 3);
+
+            int y = random.Next(0,3);
 
             if ()
             {
