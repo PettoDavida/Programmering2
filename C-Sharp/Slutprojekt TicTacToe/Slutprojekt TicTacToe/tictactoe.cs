@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -29,14 +30,35 @@ namespace Slutprojekt_Poker
 
         private void Button_Click(object sender, EventArgs e)
         {
+            
+            turn_count += 1;
             Button b = (Button)sender;
             if (turn)
                 b.Text = "X";
             else
                 b.Text = "O";
 
-            turn = !turn;// switches player
+            switch (b.Name[0])
+            {
+                case 'A': break;
+                case 'B': break;
+                case 'C': break;
+            }
+
+            switch (b.Name[1])
+            {
+                case '1': break;
+                case '2': break;
+                case '3': break;
+            }
+            
+            turn = !turn;// switches turn
             b.Enabled = false;
+            if (turn_count == 9)
+            {
+                MessageBox.Show("Draw!"); // When u click "ok" the application  restarts
+                Application.Restart();
+            }
         }
 
 
@@ -45,14 +67,14 @@ namespace Slutprojekt_Poker
         {
             
             if (turn)
-                turn = !turn;
+                turn = !turn; // Switches X to O
             else
-                turn = !turn;
+                turn = !turn; // Switches O to X
         }
 
         private void OnRestart(object sender, EventArgs e)
         {
-
+            Application.Restart();
         }
     }
 }
