@@ -21,7 +21,7 @@ namespace Slutprojekt_Poker
 
             int y = random.Next(0,3);
 
-            if ()
+            if (x > 0)
             {
 
             }

@@ -8,6 +8,6 @@ namespace Slutprojekt_Poker
 {
     class Player
     {
-
+        
     }
 }
