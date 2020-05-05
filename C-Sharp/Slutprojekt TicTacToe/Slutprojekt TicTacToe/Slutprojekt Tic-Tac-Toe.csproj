@@ -49,8 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
-    <Compile Include="Bot.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="tictactoe.cs">
       <SubType>Form</SubType>
     </Compile>
