@@ -23,9 +23,9 @@ namespace Slutprojekt_Poker
 
         public bool threeinarow(int player)
         {
-            for (int x = 0; x < 3; x++)
+            for (int y = 0; y < 3; y++)
             {
-                if (cells[x,0] == player && cells[x, 0] == player && cells[x, 0] == player)
+                if (cells[0, y] == player && cells[1, y] == player && cells[2, y] == player)
                 {
                     return true;
                 }
