@@ -38,18 +38,21 @@ namespace Slutprojekt_Poker
             else
                 b.Text = "O";
 
+            int x = 0;
+            int y = 0;
+
             switch (b.Name[0])
             {
-                case 'A': break;
-                case 'B': break;
-                case 'C': break;
+                case 'A': y = 0; break;
+                case 'B': y = 1; break;
+                case 'C': y = 2; break;
             }
 
             switch (b.Name[1])
             {
-                case '1': break;
-                case '2': break;
-                case '3': break;
+                case '1': x = 0; break;
+                case '2': x = 1; break;
+                case '3': x = 2; break;
             }
             
             turn = !turn;// switches turn
