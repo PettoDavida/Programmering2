@@ -39,6 +39,11 @@ namespace Slutprojekt_Poker
                 }
             }
 
+            if (cells[0, 0] == player && cells[1, 1] == player && cells[2, 2] == player)
+            {
+                return true;
+            }
+
             return false;
         }
     }
