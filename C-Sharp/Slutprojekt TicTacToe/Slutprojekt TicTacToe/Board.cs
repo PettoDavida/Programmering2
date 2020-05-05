@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,16 @@ namespace Slutprojekt_Poker
         {
             int position = cells[x, y];
             return position > 0;
+        }
+
+        public void setValue(int x, int y, int v)
+        {
+            cells[x, y] = v;
+        }
+
+        public void threeinarow()
+        {
+
         }
     }
 }

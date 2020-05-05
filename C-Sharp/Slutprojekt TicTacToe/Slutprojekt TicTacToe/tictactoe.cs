@@ -18,9 +18,11 @@ namespace Slutprojekt_Poker
     {
         bool turn = true; // true = x Turn; false = o turn
         int turn_count = 0; // when turn_count = 9 game is a draw
+        Board board;
         public tictactoe()
         {
             InitializeComponent();
+            board = new Board();
         }
 
         private void tictactoe_Load(object sender, EventArgs e)
@@ -54,7 +56,7 @@ namespace Slutprojekt_Poker
                 case '2': x = 1; break;
                 case '3': x = 2; break;
             }
-            
+            board.setValue(x, y, turn ? 1 : 2);
             turn = !turn;// switches turn
             b.Enabled = false;
             if (turn_count == 9)
