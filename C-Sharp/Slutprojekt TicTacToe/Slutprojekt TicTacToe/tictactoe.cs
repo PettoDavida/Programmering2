@@ -61,7 +61,12 @@ namespace Slutprojekt_Poker
 
             bool winner = board.threeinarow(turn ? 1 : 2);
 
-            Console.WriteLine(winner);
+            if (winner)
+            {
+                string winningteam = turn ? "x" : "o";
+                MessageBox.Show( winningteam + "    wins!"); // When u click "ok" the application  restarts
+                Application.Restart();
+            }
 
 
             turn = !turn;// switches turn
