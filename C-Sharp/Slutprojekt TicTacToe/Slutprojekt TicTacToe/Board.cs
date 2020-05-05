@@ -29,7 +29,17 @@ namespace Slutprojekt_Poker
                 {
                     return true;
                 }
-            } return false;
+            }
+
+            for (int x = 0; x < 3; x++)
+            {
+                if (cells[x, 0] == player && cells[x, 1] == player && cells[x, 2] == player)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
