@@ -10,12 +10,7 @@ namespace Slutprojekt_Poker
     class Board
     {
         private int[,] cells = new int[3, 3];
-        public bool check(int x, int y)
-        {
-            int position = cells[x, y];
-            return position > 0;
-        }
-
+       
         public void setValue(int x, int y, int v)
         {
             cells[x, y] = v;
