@@ -21,9 +21,15 @@ namespace Slutprojekt_Poker
             cells[x, y] = v;
         }
 
-        public void threeinarow()
+        public bool threeinarow(int player)
         {
-
+            for (int x = 0; x < 3; x++)
+            {
+                if (cells[x,0] == player && cells[x, 0] == player && cells[x, 0] == player)
+                {
+                    return true;
+                }
+            } return false;
         }
     }
 }

@@ -56,7 +56,14 @@ namespace Slutprojekt_Poker
                 case '2': x = 1; break;
                 case '3': x = 2; break;
             }
+
             board.setValue(x, y, turn ? 1 : 2);
+
+            bool winner = board.threeinarow(turn ? 1 : 2);
+
+            Console.WriteLine(winner);
+
+
             turn = !turn;// switches turn
             b.Enabled = false;
             if (turn_count == 9)
